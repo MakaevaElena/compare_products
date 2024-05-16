@@ -1,0 +1,12 @@
+body {
+  font-size: 18px;
+}
+
+.wrapper {
+  padding: 0 166px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,0 +1,26 @@
+.table-wrapper {
+  background-color: #e5e5e5;
+}
+
+.compare-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #cdcfd2;
+  border-bottom: 1px solid #cdcfd2;
+}
+
+.param-title {
+  width: 165px;
+  color: #a4a9b9;
+  font-size: 18px;
+}
+
+.param-value {
+  width: 100px;
+}
+
+.param-value img {
+  width: 22px;
+  height: 22px;
+}

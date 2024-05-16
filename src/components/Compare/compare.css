@@ -1,0 +1,23 @@
+.compare-wrapper {
+  padding-bottom: 77px;
+  border-bottom: 1px solid #cdcfd2;
+}
+
+.compare-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.compare-title {
+  color: #828286;
+  font-size: 48px;
+}
+
+.compare-count {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  color: #0d5adc;
+}

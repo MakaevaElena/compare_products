@@ -1,0 +1,47 @@
+import { numberFormat } from "./utils.tsx";
+
+export const PRODUCTS = [
+  {
+    productName: "Apple iPhone 12",
+    productImage: "./img/iphone.png",
+    producer: "Apple",
+    year: 2020,
+    diagonal: 6.1,
+    country: "Китай",
+    memory: 128,
+    fqc: 60,
+    NFC: false,
+    ESIM: true,
+    wirelessPower: true,
+    price: `${numberFormat(81990)} ₽`,
+  },
+  {
+    productName: "Apple iPhone 12",
+    productImage: "./img/iphone.png",
+    producer: "Apple",
+    year: 2020,
+    diagonal: 6.1,
+    country: "Китай",
+    memory: 128,
+    fqc: 60,
+    NFC: false,
+    ESIM: true,
+    wirelessPower: true,
+    price: `${numberFormat(81990)} ₽`,
+  },
+
+  {
+    productName: "Apple iPhone 12",
+    productImage: "./img/iphone.png",
+    producer: "Apple",
+    year: 2020,
+    diagonal: 6.1,
+    country: "Китай",
+    memory: 128,
+    fqc: 60,
+    NFC: false,
+    ESIM: true,
+    wirelessPower: true,
+    price: `${numberFormat(81990)} ₽`,
+  },
+];
