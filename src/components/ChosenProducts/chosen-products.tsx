@@ -1,12 +1,15 @@
 import React from "react";
-import { PRODUCTS } from "../../products.tsx";
+import { PRODUCTS } from "../../products.ts";
 import "./chosen-products.css";
+import { useAppSelector } from "../../store/slices/hooks.ts";
 
-type ChosenProductsProps = {
-  chosenCount: number;
-};
+// type ChosenProductsProps = {
+//   chosenCount: number;
+// };
 
-const ChosenProducts: React.FC<ChosenProductsProps> = (props) => {
+const ChosenProducts: React.FC = () => {
+  const chosenCount = useAppSelector((state) => state.data.chosenCount);
+
   return (
     <>
       <div className="choose-products">
@@ -15,7 +18,7 @@ const ChosenProducts: React.FC<ChosenProductsProps> = (props) => {
           <label htmlFor="diffs">Показать различия</label>
         </div>
 
-        {PRODUCTS.slice(0, props.chosenCount).map((product, i) => (
+        {PRODUCTS.slice(0, chosenCount).map((product, i) => (
           <div className="product" key={i}>
             <div className="top">
               <div className="image">

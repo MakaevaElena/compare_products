@@ -1,29 +1,29 @@
-import React, { useState } from "react";
+// import React, { useEffect, useState } from "react";
 import "./compare.css";
 import ChosenProducts from "../ChosenProducts/chosen-products.tsx";
 import CompareTable from "../CompareTable/compare-table.tsx";
-import { PRODUCTS } from "../../products.tsx";
+import { PRODUCTS } from "../../products.ts";
+import { useDispatch } from "react-redux";
+import { setChosenCount } from "../../store/slices/dataSlice.ts";
+import React from "react";
+import { useAppSelector } from "../../store/slices/hooks.ts";
 
 const Compare: React.FC = () => {
-  const [chosenCount, setChosenCount] = useState(3);
+  const dispatch = useDispatch();
+  const chosenCount = useAppSelector((state) => state.data.chosenCount);
+  // const [chosenCount, setChosenCount] = useState(3);
 
   const handleOnclick = (event) => {
-    Array.prototype.slice
-      .call(event.target.parentNode.parentNode.childNodes)
-      .forEach((el) => el.classList.remove("chosen"));
-    event.target.classList.add("chosen");
-    setChosenCount(event.target.innerHTML);
+    dispatch(setChosenCount(+event.target.innerHTML));
   };
 
-  const countOfProducts = (
+  const countOfProducts = () => (
     <>
       {PRODUCTS.map((el, i) => {
         if (i > 0) {
           return (
-            <div key={i}>
-              <p className="count-for-compare" onClick={(event) => handleOnclick(event)}>
-                {i + 1}
-              </p>
+            <div key={i} className={`count-for-compare ${chosenCount === i + 1 ? "chosen" : ""}`}>
+              <p onClick={(event) => handleOnclick(event)}>{i + 1}</p>
             </div>
           );
         }
@@ -40,12 +40,12 @@ const Compare: React.FC = () => {
           </div>
           <div className="compare-count">
             <p>Отобразить товары: </p>
-            {countOfProducts}
+            {countOfProducts()}
           </div>
         </div>
-        <ChosenProducts chosenCount={chosenCount} />
+        <ChosenProducts />
       </div>
-      <CompareTable chosenCount={chosenCount} />
+      <CompareTable />
     </>
   );
 };

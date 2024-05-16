@@ -1,17 +1,26 @@
 .compare-wrapper {
+  /* padding-top: 63px; */
   padding-bottom: 77px;
   border-bottom: 1px solid #cdcfd2;
+  background-color: white;
 }
 
 .compare-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .compare-title {
   color: #828286;
   font-size: 48px;
+}
+
+@media screen and (max-width: 800px) {
+  .compare-title {
+    font-size: 6vw;
+  }
 }
 
 .compare-count {

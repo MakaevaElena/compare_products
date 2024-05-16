@@ -2,7 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   border-bottom: 1px solid #a6a5a9;
+  /* width: 100%; */
+  max-width: 1110px;
 }
 
 .header-left {
@@ -21,6 +24,7 @@
   display: flex;
   justify-content: space-between;
   gap: 48px;
+  flex-wrap: wrap;
   align-items: center;
   font-weight: 700;
   font-size: 12px;
@@ -31,6 +35,7 @@
   justify-content: space-between;
   gap: 19px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .user-icon {

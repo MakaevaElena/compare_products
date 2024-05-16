@@ -1,13 +1,15 @@
 import React from "react";
 import "./compare-table.css";
-import { PRODUCTS } from "../../products.tsx";
+import { PRODUCTS } from "../../products.ts";
 import { COMPARE_PARAMS } from "../../constants.tsx";
+import { useAppSelector } from "../../store/slices/hooks.ts";
 
-type CompareTableProps = {
-  chosenCount: number;
-};
+// type CompareTableProps = {
+//   chosenCount: number;
+// };
 
-const CompareTable: React.FC<CompareTableProps> = (props) => {
+const CompareTable: React.FC = () => {
+  const chosenCount = useAppSelector((state) => state.data.chosenCount);
   return (
     <div className="table-wrapper wrapper">
       {Object.keys(COMPARE_PARAMS).map((param: string, i: number) => {
@@ -17,7 +19,7 @@ const CompareTable: React.FC<CompareTableProps> = (props) => {
               <p>{param}</p>
             </div>
 
-            {PRODUCTS.slice(0, props.chosenCount).map((product, i) => {
+            {PRODUCTS.slice(0, chosenCount).map((product, i) => {
               let newParam:
                 | string
                 | number

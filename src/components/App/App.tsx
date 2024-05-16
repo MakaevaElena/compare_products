@@ -6,6 +6,7 @@ import Catalog from "../Catalog/catalog.tsx";
 import Compare from "../Compare/compare.tsx";
 import User from "../User/user.tsx";
 import PageNotFound from "../PageNotFound/page-not-found.tsx";
+import Footer from "../Footer/footer.tsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path={`/user`} element={<User />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

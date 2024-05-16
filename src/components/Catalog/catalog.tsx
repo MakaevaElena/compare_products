@@ -1,16 +1,16 @@
 import React from "react";
 import "./catalog.css";
 import { COMPARE_PARAMS } from "../../constants.tsx";
-import { PRODUCTS } from "../../products.tsx";
+import { PRODUCTS } from "../../products.ts";
 
 const Catalog: React.FC = () => {
   return (
-    <div className="catalog wrapper">
+    <div className="wrapper">
       <h2>Catalog</h2>
 
       {PRODUCTS.map((product, i) => {
         return (
-          <>
+          <div className="catalog" key={i}>
             <p className="product-title">{product.productName}</p>
             <div className="image">
               <img className="product-img" src={product.productImage} alt="" />
@@ -39,13 +39,13 @@ const Catalog: React.FC = () => {
                 }
                 return (
                   <div className="params" key={i}>
-                    <p>{param}</p>
-                    <p>{newParam}</p>
+                    <p className="param-title">{param}</p>
+                    <p className="param-image">{newParam}</p>
                   </div>
                 );
               })}
             </div>
-          </>
+          </div>
         );
       })}
     </div>
