@@ -2,7 +2,11 @@ import React from "react";
 import { PRODUCTS } from "../../products.tsx";
 import "./chosen-products.css";
 
-const ChosenProducts: React.FC = () => {
+type ChosenProductsProps = {
+  chosenCount: number;
+};
+
+const ChosenProducts: React.FC<ChosenProductsProps> = (props) => {
   return (
     <>
       <div className="choose-products">
@@ -11,7 +15,7 @@ const ChosenProducts: React.FC = () => {
           <label htmlFor="diffs">Показать различия</label>
         </div>
 
-        {PRODUCTS.map((product, i) => (
+        {PRODUCTS.slice(0, props.chosenCount).map((product, i) => (
           <div className="product" key={i}>
             <div className="top">
               <div className="image">

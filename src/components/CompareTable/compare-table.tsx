@@ -1,23 +1,13 @@
 import React from "react";
 import "./compare-table.css";
 import { PRODUCTS } from "../../products.tsx";
-// import imageTrue from "../../assets/img/true.png";
-// import imageFalse from "../../assets/img/false.png";
+import { COMPARE_PARAMS } from "../../constants.tsx";
 
-const COMPARE_PARAMS = {
-  ПРОИЗВОДИТЕЛЬ: "producer",
-  "ГОД РЕЛИЗА": "year",
-  "ДИАГОНАЛЬ ЭКРАНА (ДЮЙМ)": "diagonal",
-  "СТРАНА-ПРОИЗВОДИТЕЛЬ": "country",
-  "ОБЪЕМ ПАМЯТИ": "memory",
-  "ЧАСТОТА ОБНОВЛЕНИЯ ЭКРАНА": "fqc",
-  NFC: "NFC",
-  "ПОДДЕРЖКА ESIM": "ESIM",
-  "ПОДДЕРЖКА БЕСПРОВОДНОЙ ЗАРЯДКИ": "wirelessPower",
-  СТОИМОСТЬ: "price",
+type CompareTableProps = {
+  chosenCount: number;
 };
 
-const CompareTable: React.FC = () => {
+const CompareTable: React.FC<CompareTableProps> = (props) => {
   return (
     <div className="table-wrapper wrapper">
       {Object.keys(COMPARE_PARAMS).map((param: string, i: number) => {
@@ -27,9 +17,7 @@ const CompareTable: React.FC = () => {
               <p>{param}</p>
             </div>
 
-            {PRODUCTS.map((product, i) => {
-              // console.log(product[COMPARE_PARAMS[param]]);
-
+            {PRODUCTS.slice(0, props.chosenCount).map((product, i) => {
               let newParam:
                 | string
                 | number

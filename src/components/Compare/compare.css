@@ -21,3 +21,15 @@
   gap: 10px;
   color: #0d5adc;
 }
+
+.count-for-compare {
+  cursor: pointer;
+}
+
+.count-for-compare:hover {
+  color: #5e90e6;
+}
+
+.chosen {
+  text-decoration: underline;
+}
