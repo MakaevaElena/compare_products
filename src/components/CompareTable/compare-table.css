@@ -1,7 +1,8 @@
 .table-wrapper {
   background-color: white;
   padding-bottom: 90px;
-  background-color: #e5e5e5;
+  /* background-color: #e5e5e5; */
+  background-color: #f4f9fc;
 }
 
 .compare-row {
@@ -15,6 +16,7 @@
   width: 165px;
   color: #a4a9b9;
   font-size: 18px;
+  padding-right: 10px;
 }
 
 @media screen and (max-width: 500px) {

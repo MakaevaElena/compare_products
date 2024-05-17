@@ -1,23 +1,23 @@
 import React from "react";
 import "./header.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header: React.FC = () => {
   return (
     <div className="header-wrapper wrapper">
       <section className="header-left">
-        <Link to="/catalog">
+        <NavLink to="/catalog" className={({ isActive }) => (isActive ? "active" : "")}>
           <p>Каталог</p>
-        </Link>
+        </NavLink>
       </section>
       <section className="header-right">
-        <Link to="/compare">
+        <NavLink to="/compare" className={({ isActive }) => (isActive ? "active" : "")}>
           <p>СРАВНЕНИЕ</p>
-        </Link>
+        </NavLink>
         <div className="header-user">
-          <Link to="/user">
+          <NavLink to="/user" className={({ isActive }) => (isActive ? "active" : "")}>
             <p>Личный кабинет</p>
-          </Link>
+          </NavLink>
           <div className="user-icon"></div>
         </div>
       </section>

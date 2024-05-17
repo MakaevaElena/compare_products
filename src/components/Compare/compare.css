@@ -1,5 +1,4 @@
 .compare-wrapper {
-  /* padding-top: 63px; */
   padding-bottom: 77px;
   border-bottom: 1px solid #cdcfd2;
   background-color: white;
@@ -14,7 +13,12 @@
 
 .compare-title {
   color: #828286;
-  font-size: 48px;
+  font-size: 52px;
+}
+
+.compare-title h4 {
+  margin-top: 62px;
+  margin-bottom: 22px;
 }
 
 @media screen and (max-width: 800px) {
@@ -27,8 +31,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   color: #0d5adc;
+}
+
+.compare-count p {
+  margin-top: 70px;
+  margin-bottom: 0px;
+  font-size: 1.43vw;
 }
 
 .count-for-compare {

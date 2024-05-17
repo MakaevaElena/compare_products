@@ -3,8 +3,14 @@ body {
 }
 
 .wrapper {
-  /* max-width: 1110px; */
+  max-width: 1440px;
   padding: 0 10vw;
+}
+
+@media screen and (max-width: 500px) {
+  .wrapper {
+    padding: 0 5vw;
+  }
 }
 
 a {

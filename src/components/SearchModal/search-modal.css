@@ -1,0 +1,88 @@
+.modal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  left: -19vw;
+  top: 70px;
+  border: 1px solid #c1c1c1;
+  width: 420px;
+  /* height: 335px; */
+  background-color: white;
+  border-radius: 2%;
+  z-index: 100;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* width: 10vw; */
+  min-width: 200px;
+  margin: 34px 0px;
+  /* overflow: scroll; */
+}
+
+.search-input {
+  width: 360px;
+  height: 47px;
+  border: 1px solid #c1c1c1;
+  border-radius: 3%;
+  outline: none;
+  color: #c1c1c1;
+  font-size: 24px;
+}
+
+.search-button {
+  position: absolute;
+  top: 0.45em;
+  right: -4%;
+
+  width: 2em;
+  height: 2em;
+  border: none;
+  border-radius: 3%;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  transition: 0.2s;
+}
+
+.search-button:hover {
+  transform: scale(1.1);
+}
+
+.search-button:active {
+  border: none;
+}
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.product-list .product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.row-choose {
+  background-image: url("../../assets/img/row-choose.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 4vw;
+  width: 4vw;
+  cursor: pointer;
+}
+
+.product-list .image {
+  height: auto;
+  width: 35px;
+  margin: 0 15px;
+}
