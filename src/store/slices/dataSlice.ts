@@ -7,6 +7,21 @@ const initialState: DataState = {
   chosenCount: 3,
   searchValue: "",
   chosenProducts: PRODUCTS.slice(0, 3),
+  changedProduct: {
+    productName: "",
+    productImage: "",
+    producer: "",
+    year: 0,
+    diagonal: 0,
+    country: "",
+    memory: "",
+    fqc: "",
+    NFC: false,
+    ESIM: false,
+    wirelessPower: false,
+    price: "",
+  },
+  changedProductId: 0,
 };
 
 const dataSlice = createSlice({
@@ -24,9 +39,23 @@ const dataSlice = createSlice({
     setChosenProducts: (state, action) => {
       state.chosenProducts = action.payload;
     },
+
+    setChangedProduct: (state, action) => {
+      state.changedProduct = action.payload;
+    },
+
+    setChangedProductId: (state, action) => {
+      state.changedProductId = action.payload;
+    },
   },
 });
 
-export const { setChosenCount, setSearchValue, setChosenProducts } = dataSlice.actions;
+export const {
+  setChosenCount,
+  setSearchValue,
+  setChosenProducts,
+  setChangedProduct,
+  setChangedProductId,
+} = dataSlice.actions;
 
 export default dataSlice.reducer;

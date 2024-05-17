@@ -2,16 +2,22 @@ import React, { useState } from "react";
 import "./chosen-products.css";
 import { useAppSelector } from "../../store/slices/hooks.ts";
 import SearchModal from "../SearchModal/search-modal.tsx";
+import { Product } from "../../store/slices/types.ts";
+import { useDispatch } from "react-redux";
+import { setChangedProduct, setChangedProductId } from "../../store/slices/dataSlice.ts";
 
 const ChosenProducts: React.FC = () => {
+  const dispatch = useDispatch();
   const chosenProducts = useAppSelector((state) => state.data.chosenProducts);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [orderNum, setOrderNum] = useState(0);
 
-  const onOpenSearchModal = (event: React.MouseEvent<HTMLElement>, i: number) => {
+  const onOpenSearchModal = (event: React.MouseEvent<HTMLElement>, i: number, product: Product) => {
     setIsModalOpen(!isModalOpen);
     setOrderNum(i);
+    dispatch(setChangedProduct(product));
+    dispatch(setChangedProductId(+i));
   };
 
   return (
@@ -31,7 +37,7 @@ const ChosenProducts: React.FC = () => {
               <div
                 className={`row-open`}
                 onClick={(event: React.MouseEvent<HTMLElement>) =>
-                  onOpenSearchModal(event, i)
+                  onOpenSearchModal(event, i, product)
                 }></div>
             </div>
             <div className="name">{product.productName}</div>

@@ -3,14 +3,15 @@
   justify-content: center;
   align-items: flex-start;
   position: absolute;
-  left: -19vw;
-  top: 70px;
+  left: -100%;
+  top: 100px;
   border: 1px solid #c1c1c1;
   width: 420px;
-  /* height: 335px; */
+  max-height: 335px;
   background-color: white;
   border-radius: 2%;
   z-index: 100;
+  overflow: auto;
 }
 
 form {
@@ -22,7 +23,6 @@ form {
   /* width: 10vw; */
   min-width: 200px;
   margin: 34px 0px;
-  /* overflow: scroll; */
 }
 
 .search-input {
@@ -35,7 +35,7 @@ form {
   font-size: 24px;
 }
 
-.search-button {
+/* .search-button {
   position: absolute;
   top: 0.45em;
   right: -4%;
@@ -47,15 +47,15 @@ form {
   cursor: pointer;
   background-repeat: no-repeat;
   transition: 0.2s;
-}
+} */
 
-.search-button:hover {
+/* .search-button:hover {
   transform: scale(1.1);
 }
 
 .search-button:active {
   border: none;
-}
+} */
 
 .product-list {
   display: flex;

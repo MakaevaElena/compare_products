@@ -5,25 +5,30 @@ import CompareTable from "../CompareTable/compare-table.tsx";
 import { PRODUCTS } from "../../products.ts";
 import { useDispatch } from "react-redux";
 import { setChosenCount, setChosenProducts } from "../../store/slices/dataSlice.ts";
-import React from "react";
+import React, { useEffect } from "react";
 import { useAppSelector } from "../../store/slices/hooks.ts";
 
 const Compare: React.FC = () => {
   const dispatch = useDispatch();
   const chosenCount = useAppSelector((state) => state.data.chosenCount);
 
-  const handleOnclick = (event) => {
-    dispatch(setChosenCount(+event.target.innerHTML));
-    dispatch(setChosenProducts(PRODUCTS.slice(0, chosenCount)));
+  const handleOnclick = (event: React.MouseEvent<HTMLElement>) => {
+    if (event.target instanceof HTMLElement) dispatch(setChosenCount(+event.target.innerHTML));
   };
+
+  useEffect(() => {
+    dispatch(setChosenProducts(PRODUCTS.slice(0, chosenCount)));
+  }, [chosenCount, dispatch]);
 
   const countOfProducts = () => (
     <>
       {PRODUCTS.map((el, i) => {
-        if (i > 0) {
+        if (i > 0 && i <= 6) {
           return (
             <div key={i} className={`count-for-compare ${chosenCount === i + 1 ? "chosen" : ""}`}>
-              <p onClick={(event) => handleOnclick(event)}>{i + 1}</p>
+              <p onClick={(event: React.MouseEvent<HTMLElement>) => handleOnclick(event)}>
+                {i + 1}
+              </p>
             </div>
           );
         }
