@@ -4,12 +4,17 @@ import { useAppSelector } from "../../store/slices/hooks.ts";
 import SearchModal from "../SearchModal/search-modal.tsx";
 import { Product } from "../../store/slices/types.ts";
 import { useDispatch } from "react-redux";
-import { setChangedProduct, setChangedProductId } from "../../store/slices/dataSlice.ts";
+import {
+  setChangedProduct,
+  setChangedProductId,
+  setShowChanges,
+} from "../../store/slices/dataSlice.ts";
 import { PRODUCTS } from "../../products.ts";
 
 const ChosenProducts: React.FC = () => {
   const dispatch = useDispatch();
   const chosenProducts = useAppSelector((state) => state.data.chosenProducts);
+  const showChanges = useAppSelector((state) => state.data.showChanges);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [orderNum, setOrderNum] = useState(0);
@@ -21,11 +26,15 @@ const ChosenProducts: React.FC = () => {
     dispatch(setChangedProductId(+i));
   };
 
+  const handleChange = () => {
+    dispatch(setShowChanges(!showChanges));
+  };
+
   return (
     <>
       <div className="choose-products">
         <div>
-          <input className="checkbox-diff" type="checkbox" id="diffs" />
+          <input className="checkbox-diff" type="checkbox" id="diffs" onChange={handleChange} />
           <label htmlFor="diffs">Показать различия</label>
         </div>
 

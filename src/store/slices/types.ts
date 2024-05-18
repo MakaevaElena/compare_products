@@ -5,6 +5,7 @@ export type DataState = {
   chosenProducts: Product[];
   changedProduct: Product;
   changedProductId: number;
+  showChanges: boolean;
 };
 
 export type Product = {

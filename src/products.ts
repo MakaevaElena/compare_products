@@ -5,7 +5,7 @@ export const PRODUCTS = [
     productName: "Apple iPhone 12",
     productImage: "./img/iphone.png",
     producer: "Apple",
-    year: 2020,
+    year: 2021,
     diagonal: 6.1,
     country: "Китай",
     memory: `128 Гб`,
@@ -76,21 +76,6 @@ export const PRODUCTS = [
 
   {
     productName: "Realme 8 Pro",
-    productImage: "./img/sumsung.png",
-    producer: "REALME",
-    year: 2022,
-    diagonal: 6.7,
-    country: "Китай",
-    memory: `128 Гб`,
-    fqc: "60 Гц",
-    NFC: true,
-    ESIM: false,
-    wirelessPower: true,
-    price: `${numberFormat(32890)} ₽`,
-  },
-
-  {
-    productName: "Realme 8 Pro dddddd",
     productImage: "./img/sumsung.png",
     producer: "REALME",
     year: 2022,

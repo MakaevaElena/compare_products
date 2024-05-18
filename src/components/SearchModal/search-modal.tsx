@@ -17,8 +17,6 @@ const SearchModal: React.FC = () => {
     ? inModalProducts.filter((product) => product.productName.includes(value))
     : inModalProducts;
 
-  console.log(searchingProducts);
-
   function handleChange(evt: React.FormEvent<HTMLInputElement>) {
     if (evt?.target instanceof HTMLInputElement) {
       setValue(evt?.target.value);
@@ -29,7 +27,6 @@ const SearchModal: React.FC = () => {
     const copyChosenProducts = chosenProducts.slice();
 
     copyChosenProducts.splice(changedProductId, 1, product);
-    console.log("copyChosenProducts", copyChosenProducts);
     dispatch(setChosenProducts(copyChosenProducts));
   };
 

@@ -22,6 +22,7 @@ const initialState: DataState = {
     price: "",
   },
   changedProductId: 0,
+  showChanges: false,
 };
 
 const dataSlice = createSlice({
@@ -47,6 +48,10 @@ const dataSlice = createSlice({
     setChangedProductId: (state, action) => {
       state.changedProductId = action.payload;
     },
+
+    setShowChanges: (state, action) => {
+      state.showChanges = action.payload;
+    },
   },
 });
 
@@ -56,6 +61,7 @@ export const {
   setChosenProducts,
   setChangedProduct,
   setChangedProductId,
+  setShowChanges,
 } = dataSlice.actions;
 
 export default dataSlice.reducer;
