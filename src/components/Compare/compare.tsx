@@ -1,7 +1,6 @@
 import "./compare.css";
 import ChosenProducts from "../ChosenProducts/chosen-products.tsx";
 import CompareTable from "../CompareTable/compare-table.tsx";
-// import { PRODUCTS } from "../../products.ts";
 import { useDispatch } from "react-redux";
 import { setChosenCount, setChosenProducts } from "../../store/slices/dataSlice.ts";
 import React, { useEffect } from "react";

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./search-modal.css";
-// import { PRODUCTS } from "../../products.ts";
 import { useAppSelector } from "../../store/slices/hooks.ts";
 import { Product } from "../../store/slices/types.ts";
 import { setChosenProducts } from "../../store/slices/dataSlice.ts";

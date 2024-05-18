@@ -1,7 +1,6 @@
 import React from "react";
 import "./catalog.css";
 import { COMPARE_PARAMS } from "../../constants.tsx";
-// import { PRODUCTS } from "../../products.ts";
 import { useAppSelector } from "../../store/slices/hooks.ts";
 
 const Catalog: React.FC = () => {
