@@ -3,7 +3,7 @@ import { DataState } from "./types";
 import { PRODUCTS } from "../../products.ts";
 
 const initialState: DataState = {
-  data: [],
+  products: PRODUCTS,
   chosenCount: 3,
   searchValue: "",
   chosenProducts: PRODUCTS.slice(0, 3),

@@ -1,8 +1,7 @@
-// import React, { useEffect, useState } from "react";
 import "./compare.css";
 import ChosenProducts from "../ChosenProducts/chosen-products.tsx";
 import CompareTable from "../CompareTable/compare-table.tsx";
-import { PRODUCTS } from "../../products.ts";
+// import { PRODUCTS } from "../../products.ts";
 import { useDispatch } from "react-redux";
 import { setChosenCount, setChosenProducts } from "../../store/slices/dataSlice.ts";
 import React, { useEffect } from "react";
@@ -10,6 +9,7 @@ import { useAppSelector } from "../../store/slices/hooks.ts";
 
 const Compare: React.FC = () => {
   const dispatch = useDispatch();
+  const PRODUCTS = useAppSelector((state) => state.data.products);
   const chosenCount = useAppSelector((state) => state.data.chosenCount);
 
   const handleOnclick = (event: React.MouseEvent<HTMLElement>) => {
@@ -18,7 +18,7 @@ const Compare: React.FC = () => {
 
   useEffect(() => {
     dispatch(setChosenProducts(PRODUCTS.slice(0, chosenCount)));
-  }, [chosenCount, dispatch]);
+  }, [PRODUCTS, chosenCount, dispatch]);
 
   const countOfProducts = () => (
     <>

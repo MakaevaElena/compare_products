@@ -1,5 +1,5 @@
 export type DataState = {
-  data: [];
+  products: Product[];
   chosenCount: number;
   searchValue: string;
   chosenProducts: Product[];

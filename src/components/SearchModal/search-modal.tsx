@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./search-modal.css";
-import { PRODUCTS } from "../../products.ts";
+// import { PRODUCTS } from "../../products.ts";
 import { useAppSelector } from "../../store/slices/hooks.ts";
 import { Product } from "../../store/slices/types.ts";
 import { setChosenProducts } from "../../store/slices/dataSlice.ts";
@@ -10,6 +10,7 @@ const SearchModal: React.FC = () => {
   const dispatch = useDispatch();
   const [value, setValue] = useState("");
   const inputRef: React.RefObject<HTMLInputElement> = React.createRef();
+  const PRODUCTS = useAppSelector((state) => state.data.products);
   const chosenProducts = useAppSelector((state) => state.data.chosenProducts);
   const changedProductId = useAppSelector((state) => state.data.changedProductId);
   const inModalProducts = PRODUCTS.filter((product) => !chosenProducts.includes(product));

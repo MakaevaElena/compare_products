@@ -9,9 +9,10 @@ import {
   setChangedProductId,
   setShowChanges,
 } from "../../store/slices/dataSlice.ts";
-import { PRODUCTS } from "../../products.ts";
+// import { PRODUCTS } from "../../products.ts";
 
 const ChosenProducts: React.FC = () => {
+  const PRODUCTS = useAppSelector((state) => state.data.products);
   const dispatch = useDispatch();
   const chosenProducts = useAppSelector((state) => state.data.chosenProducts);
   const showChanges = useAppSelector((state) => state.data.showChanges);

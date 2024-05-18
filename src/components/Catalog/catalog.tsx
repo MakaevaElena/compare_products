@@ -1,21 +1,22 @@
 import React from "react";
 import "./catalog.css";
 import { COMPARE_PARAMS } from "../../constants.tsx";
-import { PRODUCTS } from "../../products.ts";
+// import { PRODUCTS } from "../../products.ts";
+import { useAppSelector } from "../../store/slices/hooks.ts";
 
 const Catalog: React.FC = () => {
+  const PRODUCTS = useAppSelector((state) => state.data.products);
+
   return (
     <div className="wrapper">
-      <h2>Catalog</h2>
-
       {PRODUCTS.map((product, i) => {
         return (
-          <div className="catalog" key={i}>
+          <div className="product-catalog" key={i}>
             <p className="product-title">{product.productName}</p>
             <div className="image">
               <img className="product-img" src={product.productImage} alt="" />
             </div>
-            <div className="product" key={i}>
+            <div className="info" key={i}>
               {Object.keys(COMPARE_PARAMS).map((param: string, i: number) => {
                 let newParam:
                   | string

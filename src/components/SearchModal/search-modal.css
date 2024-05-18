@@ -12,6 +12,8 @@
   border-radius: 2%;
   z-index: 100;
   overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #808080;
 }
 
 form {
@@ -20,7 +22,6 @@ form {
   justify-content: center;
   align-items: center;
   position: relative;
-  /* width: 10vw; */
   min-width: 200px;
   margin: 34px 0px;
 }
@@ -34,28 +35,6 @@ form {
   color: #c1c1c1;
   font-size: 24px;
 }
-
-/* .search-button {
-  position: absolute;
-  top: 0.45em;
-  right: -4%;
-
-  width: 2em;
-  height: 2em;
-  border: none;
-  border-radius: 3%;
-  cursor: pointer;
-  background-repeat: no-repeat;
-  transition: 0.2s;
-} */
-
-/* .search-button:hover {
-  transform: scale(1.1);
-}
-
-.search-button:active {
-  border: none;
-} */
 
 .product-list {
   display: flex;

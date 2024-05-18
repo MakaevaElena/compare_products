@@ -38,7 +38,14 @@
 .compare-count p {
   margin-top: 70px;
   margin-bottom: 0px;
-  font-size: 1.43vw;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 800px) {
+  .compare-count p {
+    font-size: 4vw;
+    margin: 10px;
+  }
 }
 
 .count-for-compare {
