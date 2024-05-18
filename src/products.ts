@@ -88,4 +88,19 @@ export const PRODUCTS = [
     wirelessPower: true,
     price: `${numberFormat(32890)} ₽`,
   },
+
+  {
+    productName: "Realme 8 Pro dddddd",
+    productImage: "./img/sumsung.png",
+    producer: "REALME",
+    year: 2022,
+    diagonal: 6.7,
+    country: "Китай",
+    memory: `128 Гб`,
+    fqc: "60 Гц",
+    NFC: true,
+    ESIM: false,
+    wirelessPower: true,
+    price: `${numberFormat(32890)} ₽`,
+  },
 ];

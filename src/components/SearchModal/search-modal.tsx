@@ -13,6 +13,11 @@ const SearchModal: React.FC = () => {
   const chosenProducts = useAppSelector((state) => state.data.chosenProducts);
   const changedProductId = useAppSelector((state) => state.data.changedProductId);
   const inModalProducts = PRODUCTS.filter((product) => !chosenProducts.includes(product));
+  const searchingProducts = value
+    ? inModalProducts.filter((product) => product.productName.includes(value))
+    : inModalProducts;
+
+  console.log(searchingProducts);
 
   function handleChange(evt: React.FormEvent<HTMLInputElement>) {
     if (evt?.target instanceof HTMLInputElement) {
@@ -35,18 +40,19 @@ const SearchModal: React.FC = () => {
   return (
     <div className="modal-wrapper">
       <form>
-        <input
-          ref={inputRef}
-          className="search-input"
-          type="text"
-          placeholder="Поиск"
-          value={value}
-          onChange={handleChange}
-        />
-        {/* <div className="search-button" onClick={handleSearchClick} ref={searchButtonRef}></div> */}
+        {inModalProducts.length > 3 && (
+          <input
+            ref={inputRef}
+            className="search-input"
+            type="text"
+            placeholder="Поиск"
+            value={value}
+            onChange={handleChange}
+          />
+        )}
 
         <div className="product-list">
-          {inModalProducts.map((product, i) => (
+          {searchingProducts.map((product, i) => (
             <div className="product" key={i}>
               <div className="row-choose" onClick={() => handleChangeProduct(product)}></div>
               <div className="image">

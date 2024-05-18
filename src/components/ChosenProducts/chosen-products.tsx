@@ -5,6 +5,7 @@ import SearchModal from "../SearchModal/search-modal.tsx";
 import { Product } from "../../store/slices/types.ts";
 import { useDispatch } from "react-redux";
 import { setChangedProduct, setChangedProductId } from "../../store/slices/dataSlice.ts";
+import { PRODUCTS } from "../../products.ts";
 
 const ChosenProducts: React.FC = () => {
   const dispatch = useDispatch();
@@ -34,11 +35,13 @@ const ChosenProducts: React.FC = () => {
               <div className="image">
                 <img className="product-img" src={product.productImage} alt="" />
               </div>
-              <div
-                className={`row-open`}
-                onClick={(event: React.MouseEvent<HTMLElement>) =>
-                  onOpenSearchModal(event, i, product)
-                }></div>
+              {chosenProducts.length !== PRODUCTS.length && (
+                <div
+                  className={`row-open`}
+                  onClick={(event: React.MouseEvent<HTMLElement>) =>
+                    onOpenSearchModal(event, i, product)
+                  }></div>
+              )}
             </div>
             <div className="name">{product.productName}</div>
             {isModalOpen && orderNum === i && <SearchModal />}
