@@ -21,7 +21,7 @@ const Compare: React.FC = () => {
 
   const countOfProducts = () => (
     <>
-      {PRODUCTS.map((el, i) => {
+      {PRODUCTS.map((_el, i) => {
         if (i > 0 && i < 6) {
           return (
             <div key={i} className={`count-for-compare ${chosenCount === i + 1 ? "chosen" : ""}`}>

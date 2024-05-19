@@ -24,7 +24,7 @@ const CompareTable: React.FC = () => {
     return showChanges && setOfParams.size === 1;
   };
 
-  const renderParamValues = (param) => {
+  const renderParamValues = (param: string) => {
     return chosenProducts.map((product, i) => {
       let newParam: newParamType;
 
