@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./search-modal.css";
 import { useAppSelector } from "../../store/slices/hooks.ts";
 import { Product } from "../../store/slices/types.ts";
-import { setChosenProducts } from "../../store/slices/dataSlice.ts";
+import { setChosenProducts, setIsModalOpen } from "../../store/slices/dataSlice.ts";
 import { useDispatch } from "react-redux";
 
 const SearchModal: React.FC = () => {
@@ -14,7 +14,9 @@ const SearchModal: React.FC = () => {
   const changedProductId = useAppSelector((state) => state.data.changedProductId);
   const inModalProducts = PRODUCTS.filter((product) => !chosenProducts.includes(product));
   const searchingProducts = value
-    ? inModalProducts.filter((product) => product.productName.includes(value))
+    ? inModalProducts.filter((product) =>
+        product.productName.toLowerCase().includes(value.toLowerCase())
+      )
     : inModalProducts;
 
   function handleChange(evt: React.FormEvent<HTMLInputElement>) {
@@ -28,6 +30,7 @@ const SearchModal: React.FC = () => {
 
     copyChosenProducts.splice(changedProductId, 1, product);
     dispatch(setChosenProducts(copyChosenProducts));
+    dispatch(setIsModalOpen(false));
   };
 
   useEffect(() => {
@@ -40,7 +43,7 @@ const SearchModal: React.FC = () => {
         {inModalProducts.length > 3 && (
           <input
             ref={inputRef}
-            className="search-input"
+            className="modal search-input"
             type="text"
             placeholder="Поиск"
             value={value}
@@ -48,14 +51,14 @@ const SearchModal: React.FC = () => {
           />
         )}
 
-        <div className="product-list">
+        <div className="modal product-list">
           {searchingProducts.map((product, i) => (
-            <div className="product" key={i}>
-              <div className="row-choose" onClick={() => handleChangeProduct(product)}></div>
-              <div className="image">
-                <img className="product-img" src={product.productImage} alt="" />
+            <div className="modal product" key={i}>
+              <div className="modal row-choose" onClick={() => handleChangeProduct(product)}></div>
+              <div className="modal image">
+                <img className="modal product-img" src={product.productImage} alt="" />
               </div>
-              <div className="name">{product.productName}</div>
+              <div className="modal name">{product.productName}</div>
             </div>
           ))}
         </div>

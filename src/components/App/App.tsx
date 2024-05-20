@@ -7,10 +7,27 @@ import Compare from "../Compare/compare.tsx";
 import User from "../User/user.tsx";
 import PageNotFound from "../PageNotFound/page-not-found.tsx";
 import Footer from "../Footer/footer.tsx";
+import { setIsModalOpen } from "../../store/slices/dataSlice.ts";
+import { useDispatch } from "react-redux";
+import { useAppSelector } from "../../store/slices/hooks.ts";
 
 function App() {
+  const dispatch = useDispatch();
+  const isModalOpen = useAppSelector((state) => state.data.isModalOpen);
+
+  const closeModal = (event: React.FormEvent<HTMLDivElement>) => {
+    if (
+      isModalOpen &&
+      event.target instanceof HTMLElement &&
+      !event.target.className.match(/modal|row-open/gim)
+    )
+      dispatch(setIsModalOpen(false));
+  };
+
   return (
-    <div className="container">
+    <div
+      className="container"
+      onClick={(event: React.FormEvent<HTMLDivElement>) => closeModal(event)}>
       <Header />
       <Routes>
         <Route path={`/`} element={<Catalog />} />

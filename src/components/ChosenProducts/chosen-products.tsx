@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import {
   setChangedProduct,
   setChangedProductId,
+  setIsModalOpen,
   setShowChanges,
 } from "../../store/slices/dataSlice.ts";
 
@@ -15,15 +16,17 @@ const ChosenProducts: React.FC = () => {
   const dispatch = useDispatch();
   const chosenProducts = useAppSelector((state) => state.data.chosenProducts);
   const showChanges = useAppSelector((state) => state.data.showChanges);
+  const isModalOpen = useAppSelector((state) => state.data.isModalOpen);
+  const changedProductId = useAppSelector((state) => state.data.changedProductId);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [orderNum, setOrderNum] = useState(0);
 
   const onOpenSearchModal = (event: React.MouseEvent<HTMLElement>, i: number, product: Product) => {
-    setIsModalOpen(!isModalOpen);
     setOrderNum(i);
     dispatch(setChangedProduct(product));
     dispatch(setChangedProductId(+i));
+    dispatch(setIsModalOpen(true));
+    if (changedProductId === i) dispatch(setIsModalOpen(!isModalOpen));
   };
 
   const handleChange = () => {

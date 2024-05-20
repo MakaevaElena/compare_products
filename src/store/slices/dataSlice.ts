@@ -23,6 +23,7 @@ const initialState: DataState = {
   },
   changedProductId: 0,
   showChanges: false,
+  isModalOpen: false,
 };
 
 const dataSlice = createSlice({
@@ -52,6 +53,10 @@ const dataSlice = createSlice({
     setShowChanges: (state, action) => {
       state.showChanges = action.payload;
     },
+
+    setIsModalOpen: (state, action) => {
+      state.isModalOpen = action.payload;
+    },
   },
 });
 
@@ -62,6 +67,7 @@ export const {
   setChangedProduct,
   setChangedProductId,
   setShowChanges,
+  setIsModalOpen,
 } = dataSlice.actions;
 
 export default dataSlice.reducer;

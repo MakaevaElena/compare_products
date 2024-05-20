@@ -6,6 +6,7 @@ export type DataState = {
   changedProduct: Product;
   changedProductId: number;
   showChanges: boolean;
+  isModalOpen: boolean;
 };
 
 export type Product = {
